@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Code Quiz</title>
+    <link rel="stylesheet" href="./assets/css/reset.css"/>
+    <link rel="stylesheet" href="./assets/css/style.css"/>
+</head>
+
+<body>
+    <header>
+        <a href="">View Highscores</a>
+        <h1>Time: 0</h1>
+    </header>
+    <main id="menu" class="mainbox">
+        <h2>Coding Quiz</h2>
+        <p>Get ready to test your skills and knowledge with this coding quiz. Once you click the start button, you will have 60 seconds to answer as many multiple choice coding questions as you can. If you get a question wrong, the time available to you will decrease by five seconds. </p>
+        <button>start</button>
+    </main>
+    <main id="game" class="mainbox">
+        <p>question</p>
+        <button id="button1" class="answerchoice">answer 1</button>
+        <button id="button2" class="answerchoice">answer 2</button>
+        <button id="button3" class="answerchoice">answer 3</button>
+        <button id="button5" class="answerchoice">answer 4</button>
+    </main>
+    <main id="finish" class="mainbox">
+        <h2>All Done</h2>
+        <p id="scoredisplay">Your final score is:</p>
+        <form>
+            <input type="text" id="playername" name="playername" placeholder="Enter your Initials"><br>
+            <button id="submit">Submit</button>
+        </form>
+    </main>
+    <main id="scoreboard" class="mainbox">
+        <h2>Highscores</h2>
+        <ol></ol>
+        <section>
+            <button>Go Back</button>
+            <button>Clear Scores</button>
+        </section>
+    </main>
+</body>

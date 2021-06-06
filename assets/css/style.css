@@ -10,7 +10,8 @@
 
 /* Variables */
 :root{
-    --headcolor: grey;
+    --headcolor: lightblue;
+    --buttoncolor: lightblue;
 }
 
 /* Header */
@@ -28,15 +29,73 @@ header a, header h1 {
 
 /* Main Bodies */
 .mainbox{
-    width: 60%;
+    width: 50%;
     margin: 40px auto;
+    padding: 34px;
     display: flex;
     flex-direction: column;
     border-style: outset;
     border-width: 6px;
 }
 
+.mainbox > * {
+    margin-bottom: 10px;
+}
+
 /* Menu */
-/*  */
-/*  */
-/*  */
+#menu{
+    align-items: center;
+}
+
+#menu h2{
+    font-size: 40px;
+}
+
+#menu p{
+    width: 80%;
+    text-align: center;
+}
+
+#menu button{
+    padding: 5px;
+    background-color: var(--buttoncolor);
+}
+
+/* Game */
+#game{
+    display: none;
+}
+
+#game #qprefix{
+    font-weight: 700;
+}
+
+#answeroptions button{
+    padding: 4px;
+    margin: 2px;
+    display: block;
+    background-color: var(--buttoncolor);
+}
+
+/* Finish  */
+#finish{
+    display: none;
+}
+
+#submit{
+    padding: 4px;
+    margin: 8px;
+    background-color: var(--buttoncolor);
+}
+
+/* Scoreboard */
+#scoreboard{
+    display: none;
+
+    align-items: center;
+}
+
+#scoreboard button{
+    padding: 4px;
+    background-color: var(--buttoncolor);
+}

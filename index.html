@@ -15,14 +15,16 @@
     <main id="menu" class="mainbox">
         <h2>Coding Quiz</h2>
         <p>Get ready to test your skills and knowledge with this coding quiz. Once you click the start button, you will have 60 seconds to answer as many multiple choice coding questions as you can. If you get a question wrong, the time available to you will decrease by five seconds. </p>
-        <button>start</button>
+        <button id="startbutton">start</button>
     </main>
     <main id="game" class="mainbox">
-        <p>question</p>
-        <button id="button1" class="answerchoice">answer 1</button>
-        <button id="button2" class="answerchoice">answer 2</button>
-        <button id="button3" class="answerchoice">answer 3</button>
-        <button id="button5" class="answerchoice">answer 4</button>
+        <p><span id="qprefix">Question 1: </span><span id="qcontent">blah blah blah blah blah blah blah</span></p>
+        <section id="answeroptions">
+            <button id="button1" class="answerchoice">answer 1 blah blah blah blah blah blah</button>
+            <button id="button2" class="answerchoice">answer 2 blah blah blah</button>
+            <button id="button3" class="answerchoice">answer 3</button>
+            <button id="button5" class="answerchoice">4</button>
+        </section>
     </main>
     <main id="finish" class="mainbox">
         <h2>All Done</h2>
@@ -34,10 +36,17 @@
     </main>
     <main id="scoreboard" class="mainbox">
         <h2>Highscores</h2>
-        <ol></ol>
+        <ol>
+            <li>GUY - 22</li>
+            <li>GUY - 44</li>
+            <li>GUY - 23</li>
+            <li>GUY - 44</li>
+            <li>GUY - 44</li>
+        </ol>
         <section>
             <button>Go Back</button>
             <button>Clear Scores</button>
         </section>
+        <script src="./assets/js/script.js"></script>
     </main>
 </body>

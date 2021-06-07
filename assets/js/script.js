@@ -59,29 +59,37 @@ var questions = [{
 }]
 
 var score = 0;
-var secondsleft = 60;
+var secondsleft = 0;
+var answernum = 0;
+var interupt = false;
 
 function startGame(){
     setQuestion();
+    interupt = false;
+    secondsleft = 60;
     var timerInterval = setInterval(function(){
         timer.textContent = "Time: " + secondsleft;
         if(secondsleft <= 0){
             clearInterval(timerInterval);
             timer.textContent = "Time: " + 0;
-            game.setAttribute("style", "display: none;");
-            finish.setAttribute("style", "display: flex;");
+            if(!interupt){
+                game.setAttribute("style", "display: none;");
+                finish.setAttribute("style", "display: flex;");
+            }
         }
         secondsleft--;
     },1000);
 }
 
 function setQuestion(){
+    //TODO: add question randomization
     var newQuestion = questions[0];
     questiontext.textContent = newQuestion.questiontxt;
     button1.textContent = newQuestion.option1;
     button2.textContent = newQuestion.option2;
     button3.textContent = newQuestion.option3;
     button4.textContent = newQuestion.option4;
+    answernum = newQuestion.answer;
 }
 
 // Button Functionality
@@ -91,9 +99,12 @@ function beginGame(){
     startGame();
 }
 
-//TODO reset game conditions every time you go to view scores.
-function viewScores(){
+function viewScores() {
     event.preventDefault();
+    interupt = true;
+    secondsleft = 0;
+    score = 0;
+    answernum = 0;
     menu.setAttribute("style", "display: none;");
     game.setAttribute("style", "display: none;");
     finish.setAttribute("style", "display: none;");

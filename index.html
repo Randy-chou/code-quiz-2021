@@ -8,25 +8,32 @@
 </head>
 
 <body>
+    <!-- Top of the website containing link to view scores and the timer -->
     <header>
         <a id="viewscoreslink" href="">View Highscores</a>
         <h1>Time: 0</h1>
     </header>
+
+    <!-- Starting menu where you can click a button to begin the quiz game -->
     <main id="menu" class="mainbox">
         <h2>Coding Quiz</h2>
         <p>Get ready to test your skills and knowledge with this coding quiz. Once you click the start button, you will have 60 seconds to answer as many multiple choice coding questions as you can. If you get a question wrong, the time available to you will decrease by five seconds. </p>
         <button id="startbutton">start</button>
     </main>
+
+    <!-- Panel that houses a random Webdev question and buttons that allows you to answer that question -->
     <main id="game" class="mainbox">
-        <p><span id="qprefix">Question 1: </span><span id="qcontent">blah blah blah blah blah blah blah</span></p>
+        <p><span id="qprefix">Question 1: </span><span id="qcontent">placeholder</span></p>
         <section id="answeroptions">
-            <button id="button1" class="answerchoice">answer 1 blah blah blah blah blah blah</button>
-            <button id="button2" class="answerchoice">answer 2 blah blah blah</button>
+            <button id="button1" class="answerchoice">answer 1</button>
+            <button id="button2" class="answerchoice">answer 2</button>
             <button id="button3" class="answerchoice">answer 3</button>
-            <button id="button4" class="answerchoice">4</button>
+            <button id="button4" class="answerchoice">answer 4</button>
         </section>
         <p id="response"></p>
     </main>
+
+    <!-- Finish panel that displays after you finish the game for you to input your initials and submit your score to the scoreboard -->
     <main id="finish" class="mainbox">
         <h2>All Done</h2>
         <p id="scoredisplay">Your final score is:</p>
@@ -35,11 +42,11 @@
             <button id="submit">Submit</button>
         </form>
     </main>
+
+    <!-- A scoreboard that displays the scores and players of past finished games. Data is locally stored and carries from webpage instances-->
     <main id="scoreboard" class="mainbox">
         <h2>Highscores</h2>
-        <ol id="board">
-            
-        </ol>
+        <ol id="board"></ol>
         <section>
             <button id="goback">Go Back</button>
             <button id="clearscores">Clear Scores</button>

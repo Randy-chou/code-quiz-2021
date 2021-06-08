@@ -137,6 +137,7 @@ function beginGame(){
 function startGame(){
     //reset score and display a new question and answer
     score = 0;
+    response.textContent = "";
     setQuestion();
 
     // Game is not yet interupted
@@ -259,6 +260,9 @@ function updateScores(){
     scoreArray.push(newEntry);
     localStorage.setItem("scoreArray", JSON.stringify(scoreArray));
     displayScore();
+
+    //after the new object is pushed to localStorage, reset the text input to be empty
+    playerName.value = "";
 }
 
 //Updates the scoreboard to reflect what is held in localStorage

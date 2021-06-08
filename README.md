@@ -1,8 +1,7 @@
 # code-quiz-2021
 ## Description
 This project was the first largescale project in which I was able to fully utilize standard Web APIs. I learned alot about how javascript interacts with CSS styles and HTML elements as well as many unexpected errors in the ways we can connect the three. Planning was essential to mapping out the javascript logic. I can easily see myself getting lost in the code if I had not preplanned how everything would work together. In the end I made this fun quiz game that I hope to keep adding to in the future. Please enjoy yourselves. 
-## Table of Contents (Optional)
-If your README is long, add a table of contents to make it easy for users to find what they need.
+## Table of Contents
 - [Installation](#installation)
 - [Usage](#usage)
 - [Credits](#credits)

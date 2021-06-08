@@ -137,6 +137,7 @@ function beginGame(){
 
 function viewScores() {
     event.preventDefault();
+    displayScore();
     interupt = true;
     secondsleft = 0;
     score = 0;
@@ -147,7 +148,6 @@ function viewScores() {
     game.setAttribute("style", "display: none;");
     finish.setAttribute("style", "display: none;");
     scoreboard.setAttribute("style", "display: flex;");
-    displayScore();
 }
 
 function returnToMenu(){
@@ -185,6 +185,14 @@ function updateScores(){
 
 function displayScore(){
     board.innerHTML = "";
+
+    //Update scoreArray to most recent iteration regardless of instance
+    test = localStorage.getItem("scoreArray");
+    scoreArray = [];
+    if (!(test == null || test == [])) {
+        scoreArray = JSON.parse(localStorage.getItem("scoreArray"))
+    }
+
     for(var i = 0; i < scoreArray.length; i++){
         var entryScore = scoreArray[i];
         console.log(entryScore);
@@ -197,7 +205,7 @@ function displayScore(){
 
 function clearScoreBoard(){
     scoreArray = [];
-    localStorage.setItem("scoreArray",scoreArray)
+    localStorage.setItem("scoreArray", scoreArray)
     displayScore();
 }
 

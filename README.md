@@ -19,6 +19,8 @@ N/A
 N/A
 ## Features
 Click the start button to begin the game. A counter for 60 seconds will start counting down in the top right. You are able to answer buttons to increase your ending score, but each wrong answer reduces the remaining time by five seconds. Upon running out of time you can give your initials to locally store you score. The viewscore link on the top left can be used to view the scoreboard at any time, however doing so will reset the game.
+
+Due to the limited amount of questions, the same question may be asked twice in a row which visually does not change the game panel except for the current question number.
 ## How to Contribute
 Feel free to add more questions to the question array.
 ## Tests

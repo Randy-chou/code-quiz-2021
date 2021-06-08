@@ -73,6 +73,48 @@ var questions = [{
     option2: "Java Styled Object Numbering",
     option3: "Java Script Object Notation",
     option4: "Jar Synced Ordered Numbering"
+},{
+    questiontxt: "Inside what element do we put the JavaScript?",
+    answer: 1,
+    option1: "<script>",
+    option2: "<head>",
+    option3: "<meta>",
+    option4: "<style>"
+},{
+    questiontxt: "Which of the following is correct about features of JavaScript?",
+    answer: 2,
+    option1: "It cannot handle dates and times",
+    option2: "JavaScript is a objct based scripting language",
+    option3: "JavaScript is not an interpreter based scripting language",
+    option4: "All of the above"
+},{
+    questiontxt: "What is the origional name of JavaScript?",
+    answer: 3,
+    option1: "LiveScript",
+    option2: "EScript",
+    option3: "Mocha",
+    option4: "JavaScript"
+},{
+    questiontxt: "JavaScript is designed for the following purpose -",
+    answer: 4,
+    option1: "To style HTML pages",
+    option2: "To execute Queries related to databases on a server",
+    option3: "To add interactivity to html pages",
+    option4: "All of the above"
+},{
+    questiontxt: "Which of the following is a ternary operator in Javascript?",
+    answer: 4,
+    option1: "#",
+    option2: "::",
+    option3: "&:",
+    option4: "?:"
+},{
+    questiontxt: "What the the three important manipulations done in a for loop?",
+    answer: 2,
+    option1: "Initializatoin, Incrementation, and Update",
+    option2: "Initialization, Test, and Update",
+    option3: "Initialization, Test, and Incrementation",
+    option4: "All of the above"
 }]
 
 // Variables that are tracked in the game

@@ -25,8 +25,11 @@ var answeroptions = document.getElementById("answeroptions");
 var response = document.getElementById("response");
 var qprefix = document.getElementById("qprefix");
 
-// Retieve document elements conerning the finish screen
+// Retieve document elements concerning the finish screen
 var scoreDisplay = document.getElementById("scoredisplay");
+
+// Retrive document elements concerning scoreboard
+var board = document.getElementById("board");
 
 // Coding Quiz Game Functionality
 var questions = [{
@@ -144,6 +147,7 @@ function viewScores() {
     game.setAttribute("style", "display: none;");
     finish.setAttribute("style", "display: none;");
     scoreboard.setAttribute("style", "display: flex;");
+    displayScore();
 }
 
 function returnToMenu(){
@@ -152,11 +156,18 @@ function returnToMenu(){
 }
 
 //Local Storage Scoreboard
+var scoreArray = localStorage.getItem("scoreArray");
+console.log(scoreArray);
+
+if(scoreArray == null || scoreArray == []) {
+    scoreArray = [];
+}else{
+    scoreArray = JSON.parse(localStorage.getItem("scoreArray"))
+}
+
+console.log(scoreArray);
+
 function updateScores(){
-    var scoreArray = localStorage.getItem("scoreArray")
-    if(scoreArray === null){
-        scoreArray = [];
-    }
     console.log(scoreArray)
     var newEntry = {
         name: playerName.value,
@@ -165,11 +176,26 @@ function updateScores(){
     console.log(newEntry);
     scoreArray.push(newEntry);
     console.log(scoreArray);
-    localStorage.setItem("scoreArray", JSON.stringify(scoreArray))
+    localStorage.setItem("scoreArray", JSON.stringify(scoreArray));
+    displayScore();
+}
+
+function displayScore(){
+    board.innerHTML = "";
+    for(var i = 0; i < scoreArray.length; i++){
+        var entryScore = scoreArray[i];
+        console.log(entryScore);
+        var li = document.createElement("li");
+        li.textContent = entryScore.name + " - " + entryScore.playerScore;
+
+        board.appendChild(li);
+    }
 }
 
 function clearScoreBoard(){
-    localStorage.setItem("scoreArray",[])
+    scoreArray = [];
+    localStorage.setItem("scoreArray",scoreArray)
+    displayScore();
 }
 
 startButton.addEventListener("click", beginGame);

@@ -77,6 +77,12 @@ header a, header h1 {
     background-color: var(--buttoncolor);
 }
 
+#response {
+    padding: 4px;
+    border-top: 4px dashed var(--headcolor);
+    color: var(--headcolor);
+}
+
 /* Finish  */
 #finish{
     display: none;

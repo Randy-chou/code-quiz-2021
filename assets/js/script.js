@@ -3,6 +3,9 @@ var startButton = document.getElementById("startbutton");
 var viewscoreslink = document.getElementById("viewscoreslink");
 var goback = document.getElementById("goback");
 var clearscores = document.getElementById("clearscores");
+
+// Local high score storage related elements
+var playerName = document.getElementById("playername");
 var submit = document.getElementById("submit");
 
 // Retrive differnt main UIs from document
@@ -18,6 +21,12 @@ var button1 = document.getElementById("button1");
 var button2 = document.getElementById("button2");
 var button3 = document.getElementById("button3");
 var button4 = document.getElementById("button4");
+var answeroptions = document.getElementById("answeroptions");
+var response = document.getElementById("response");
+var qprefix = document.getElementById("qprefix");
+
+// Retieve document elements conerning the finish screen
+var scoreDisplay = document.getElementById("scoredisplay");
 
 // Coding Quiz Game Functionality
 var questions = [{
@@ -56,12 +65,20 @@ var questions = [{
     option2: "Computer Superscripted Styles",
     option3: "Core Sectioned Styles",
     option4: "Color and Styled Sheets"
+},{
+    questiontxt: "What does JSON stand for?",
+    answer: 1,
+    option1: "Jar Scripted Ordered Notation",
+    option2: "Java Styled ",
+    option3: "JavaScript Object Notation",
+    option4: "Jpeg "
 }]
 
 var score = 0;
 var secondsleft = 0;
 var answernum = 0;
 var interupt = false;
+var questionNum = 1;
 
 function startGame(){
     setQuestion();
@@ -73,6 +90,7 @@ function startGame(){
             clearInterval(timerInterval);
             timer.textContent = "Time: " + 0;
             if(!interupt){
+                scoreDisplay.textContent = "Your final score is: " + score;
                 game.setAttribute("style", "display: none;");
                 finish.setAttribute("style", "display: flex;");
             }
@@ -83,13 +101,28 @@ function startGame(){
 
 function setQuestion(){
     //TODO: add question randomization
-    var newQuestion = questions[0];
+    var newQuestion = questions[Math.floor(Math.random() * questions.length)];
     questiontext.textContent = newQuestion.questiontxt;
     button1.textContent = newQuestion.option1;
     button2.textContent = newQuestion.option2;
     button3.textContent = newQuestion.option3;
     button4.textContent = newQuestion.option4;
     answernum = newQuestion.answer;
+}
+
+function answerinputed(event){
+    var element = event.target;
+    var input = element.id.charAt(element.id.length - 1);
+    if(input == answernum){
+        response.textContent = "Answer for question " + questionNum +" was correct";
+        score++;
+    }else{
+        response.textContent = "Answer for question " + questionNum +" was Wrong";
+        secondsleft -= 5;
+    }
+    questionNum++
+    qprefix.textContent = "Question " + questionNum + ": ";
+    setQuestion();
 }
 
 // Button Functionality
@@ -105,6 +138,8 @@ function viewScores() {
     secondsleft = 0;
     score = 0;
     answernum = 0;
+    questionNum = 1;
+    qprefix.textContent = "Question " + questionNum + ": ";
     menu.setAttribute("style", "display: none;");
     game.setAttribute("style", "display: none;");
     finish.setAttribute("style", "display: none;");
@@ -116,14 +151,31 @@ function returnToMenu(){
     menu.setAttribute("style", "display: flex;");
 }
 
-//Clears Local Storage Scoreboard
-function clearScoreBoard(){
-
+//Local Storage Scoreboard
+function updateScores(){
+    var scoreArray = localStorage.getItem("scoreArray")
+    if(scoreArray === null){
+        scoreArray = [];
+    }
+    console.log(scoreArray)
+    var newEntry = {
+        name: playerName.value,
+        playerScore: score
+    }
+    console.log(newEntry);
+    scoreArray.push(newEntry);
+    console.log(scoreArray);
+    localStorage.setItem("scoreArray", JSON.stringify(scoreArray))
 }
 
+function clearScoreBoard(){
+    localStorage.setItem("scoreArray",[])
+}
 
 startButton.addEventListener("click", beginGame);
 viewscoreslink.addEventListener("click", viewScores);
 submit.addEventListener("click", viewScores);
+submit.addEventListener("click", updateScores);
 goback.addEventListener("click", returnToMenu);
 clearscores.addEventListener("click", clearScoreBoard);
+answeroptions.addEventListener("click", answerinputed)

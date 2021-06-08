@@ -156,12 +156,10 @@ function returnToMenu(){
 }
 
 //Local Storage Scoreboard
-var scoreArray = localStorage.getItem("scoreArray");
-console.log(scoreArray);
+var test = localStorage.getItem("scoreArray");
+var scoreArray = [];
 
-if(scoreArray == null || scoreArray == []) {
-    scoreArray = [];
-}else{
+if(!(test == null || test == [])) {
     scoreArray = JSON.parse(localStorage.getItem("scoreArray"))
 }
 
@@ -169,8 +167,13 @@ console.log(scoreArray);
 
 function updateScores(){
     console.log(scoreArray)
+    if(playerName.value == ""){
+        var newname = "N/A"
+    }else{
+        var newname = playerName.value
+    }
     var newEntry = {
-        name: playerName.value,
+        name: newname,
         playerScore: score
     }
     console.log(newEntry);
